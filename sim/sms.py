@@ -3,7 +3,7 @@ import sys
 from enum import Enum
 from messaging.sms import SmsDeliver
 from . import Sim
-from . import Output
+from .output import Output
 
 
 class Sms:

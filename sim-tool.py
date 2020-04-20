@@ -2,10 +2,10 @@
 
 import getopt
 import sys
-from sim.sms import Sms
-from sim.gps import Gps
-from sim.lte import Lte
-from sim.output import Output
+from sim import Sms
+from sim import Gps
+from sim import Lte
+from sim import Output
 
 
 tool = ""

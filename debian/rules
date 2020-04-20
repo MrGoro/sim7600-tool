@@ -11,7 +11,9 @@ binary:
 	mkdir -p debian/sim-tool/usr/bin
 	cp sim-tool debian/sim-tool/usr/bin/
 	mkdir -p debian/sim-tool/usr/share/sim-tool
-	cp sim-tool.py debian/sim-tool/usr/share/sim-tool
+	cp sim-tool.py debian/sim-tool/usr/share/sim-tool/sim-tool
 	cp -R sim debian/sim-tool/usr/share/sim-tool
+	chmod +x debian/sim-tool/usr/bin/sim-tool
+	chmod +x debian/sim-tool/usr/share/sim-tool
 	dh_gencontrol
 	dh_builddeb

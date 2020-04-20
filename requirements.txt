@@ -1,2 +1,3 @@
-pyserial
-enum34
+pyserial~=3.4
+enum34~=1.1.10
+setuptools~=44.1.0

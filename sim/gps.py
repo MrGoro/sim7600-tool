@@ -4,7 +4,7 @@ import json
 import datetime
 import sys
 from . import Sim
-from . import Output
+from .output import Output
 
 
 class Gps:
