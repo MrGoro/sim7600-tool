@@ -2,8 +2,8 @@ import json
 import sys
 from enum import Enum
 from messaging.sms import SmsDeliver
-from .sim import Sim
-from .output import Output
+from . import Sim
+from . import Output
 
 
 class Sms:

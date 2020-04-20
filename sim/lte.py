@@ -1,7 +1,7 @@
 import json
 import re
 from subprocess import Popen, PIPE
-from .output import Output
+from . import Output
 
 
 def shell(command):

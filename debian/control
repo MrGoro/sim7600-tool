@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 9)
 
 Package: sim-tool
 Architecture: all
-Depends: python2.7
+Depends: python2.7, python-messaging
 Homepage: https://github.com/MrGoro/sim7600-tool
 Description: SIM7600 Tool
  SIM7600 Tool is written in Python

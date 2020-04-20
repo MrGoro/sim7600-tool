@@ -3,8 +3,8 @@ import re
 import json
 import datetime
 import sys
-from .sim import Sim
-from .output import Output
+from . import Sim
+from . import Output
 
 
 class Gps:
