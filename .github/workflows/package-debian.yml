@@ -21,4 +21,4 @@ jobs:
       uses: actions/upload-artifact@v2-preview
       with:
         name: sim-tool.deb
-        path: ../sim-tool_*.deb
+        path: ${{ github.workspace }}/../sim-tool_*.deb
