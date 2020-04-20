@@ -22,4 +22,5 @@ jobs:
     - name: Upload Debian Package
       uses: actions/upload-artifact@v2-preview
       with:
+        name: sim-tool Debian Package
         path: sim-tool_*.deb
