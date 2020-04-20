@@ -15,10 +15,10 @@ jobs:
       run: sudo apt-get install debhelper dh-virtualenv
 
     - name: Build Debian Package
-      run: dpkg-buildpackage -b
+      run: dpkg-buildpackage -b |
+            cp ../sim-tool_*.deb .
 
     - name: Upload Debian Package
       uses: actions/upload-artifact@v2-preview
       with:
-        name: sim-tool.deb
-        path: ${{ github.workspace }}/../sim-tool_*.deb
+        path: sim-tool_*.deb
