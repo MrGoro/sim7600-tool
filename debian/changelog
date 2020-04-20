@@ -1,0 +1,5 @@
+sim-tool (1.0.0-1) stretch; urgency=medium
+
+  * Initial version of the tool with packaging.
+
+ -- Philipp Schürmann <spam@mrgoro.de>  Mon, 20 Apr 2020 09:26:19 +0200
