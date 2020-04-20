@@ -11,8 +11,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Build Debian Package
+    - name: Install Dependencies
       run: sudo apt-get install debhelper dh-virtualenv
 
     - name: Build Debian Package
       run: dpkg-buildpackage -b
+
+    - name: Upload Debian Package
+      uses: actions/upload-artifact@v2-preview
+      with:
+        name: sim-tool.deb
+        path: ../sim-tool_*.deb
