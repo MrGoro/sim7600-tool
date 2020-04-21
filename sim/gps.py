@@ -49,7 +49,7 @@ class Gps:
     def check_status(self, retries=0):
         self.out.verbose("Check GPS status")
         gps_status = self.sim.send_command('CGPS?')
-        if len(gps_status) != 3 and gps_status[1] != '+CGPS: 1,1':
+        if len(gps_status) != 3 or gps_status[1] != '+CGPS: 1,1':
             self.out.verbose("Activating GPS")
             gps_activate_result = self.sim.send_command('CGPS=1')
             self.out.verbose(gps_activate_result)

@@ -23,9 +23,9 @@ class Lte:
             self.out.verbose("Device activated")
         else:
             self.out.verbose("Device not activated")
-        json_result = {'activated': result}
-        self.out.output(json.dumps(json_result))
-        return json_result
+
+        self.out.output(json.dumps({'activateDevice': {'successful': result}}))
+        return result
 
     def activate_device(self):
         self.out.verbose("Activating Device")
@@ -124,8 +124,11 @@ class Lte:
         self.out.verbose(result['out'])
 
         if result['rc'] != 0:
+            self.out.verbose("Error getting interface name: " + result['error'])
             return ""
-        return result['out'].strip()
+
+        interface = result['out'].strip()
+        return interface
 
     def action_activate_raw_ip(self):
         self.out.verbose("Activate raw_ip for network interface")

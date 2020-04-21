@@ -76,6 +76,9 @@ def usage_lte():
 if __name__ == "__main__":
     try:
         tool = sys.argv[1]
+        if tool == "--help":
+            usage()
+            sys.exit(2)
         if tool not in ['sms', 'gps', 'lte']:
             print("Tool '" + tool + "' is invalid. Please run sim-tool --help for more information.")
             sys.exit(2)

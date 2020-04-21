@@ -15,5 +15,6 @@ binary:
 	cp -R sim debian/sim-tool/usr/share/sim-tool
 	chmod +x debian/sim-tool/usr/bin/sim-tool
 	chmod +x debian/sim-tool/usr/share/sim-tool
+	chmod +x debian/sim-tool/usr/share/sim-tool/sim/lte/*.sh
 	dh_gencontrol
 	dh_builddeb
