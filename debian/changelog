@@ -1,5 +1,6 @@
 sim-tool (0.0.0-1) stretch; urgency=medium
 
+  [ Philipp Schürmann ]
   * Initial version of the tool with packaging.
 
- -- Philipp Schürmann <spam@mrgoro.de>  Mon, 20 Apr 2020 09:26:19 +0200
+ --  <runner@fv-az59.i1mdzpbe1fzehgnes4oqw3qa4b.cx.internal.cloudapp.net>  Tue, 21 Apr 2020 09:39:54 +0000
