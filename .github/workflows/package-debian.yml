@@ -19,7 +19,7 @@ jobs:
 
     - name: Copy Debian Packages
       run: |
-        mk dir release
+        mkdir release
         cp ../sim-tool_* ./release
 
     - name: Upload Debian Package
