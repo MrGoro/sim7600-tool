@@ -5,7 +5,7 @@ Maintainer: Philipp Schürmann <spam@mrgoro.de>
 Build-Depends: build-essential, debhelper (>= 9)
 
 Package: sim-tool
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, python2.7, python-enum34, python-serial, python-messaging
 Homepage: https://github.com/MrGoro/sim7600-tool
 Description: SIM7600 Tool
