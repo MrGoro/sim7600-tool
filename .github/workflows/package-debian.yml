@@ -5,29 +5,6 @@ on:
     branches: [ master ]
 
 jobs:
-  changelog:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Install Dependencies
-        run: sudo apt-get install git-buildpackage
-
-      - name: Update Changelog
-        run: gbp dch
-
-      - name: Push changes
-        uses: github-actions-x/commit@v2.5
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: 'master'
-          commit-message: 'Changelog'
-          force-add: 'true'
-          files: debian/changelog
-          name: Github Actions
-          email: mail@mrgoro.de
-
   build:
     runs-on: ubuntu-latest
 
