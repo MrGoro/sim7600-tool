@@ -29,7 +29,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'master'
-        commit-message: "Update Version to "${{ steps.get-version.outputs.version }}
+        commit-message: "Update Version to ${{ steps.get-version.outputs.version }}"
         force-add: 'true'
         files: debian/changelog
         name: Github Actions
