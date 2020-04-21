@@ -1,5 +1,6 @@
 import json
 import re
+import sys
 from subprocess import Popen, PIPE
 from .output import Output
 
@@ -9,6 +10,13 @@ def shell(command):
     output, err = p.communicate(b"")
     rc = p.returncode
     return {'out': output, 'error': err, 'rc': rc}
+
+
+def script(path):
+    folder = sys.path[0]
+    if path.startswith("./"):
+        path = folder + "/" + path[2:]
+    return shell(["bash", path])
 
 
 class Lte:
@@ -30,7 +38,7 @@ class Lte:
     def activate_device(self):
         self.out.verbose("Activating Device")
 
-        result = shell(["bash", "./sim/lte/activate-device.sh"])
+        result = script("./sim/lte/activate-device.sh")
         self.out.verbose(result['out'])
 
         return result['rc'] == 0 and result['out'].strip() == '[/dev/cdc-wdm0] Operating mode set successfully'
@@ -42,7 +50,7 @@ class Lte:
     def activate_network(self, apn):
         self.out.verbose("Activating mobile network for APN " + apn)
 
-        result = shell(["bash", "./sim/lte/activate-network.sh", apn])
+        result = script("./sim/lte/activate-network.sh " + apn)
         self.out.verbose(result['out'])
 
         return result['rc'] == 0
@@ -54,7 +62,7 @@ class Lte:
     def activate_dhcp(self):
         self.out.verbose("Activating DHCP")
 
-        result = shell(["bash", "./sim/lte/activate-dhcp.sh"])
+        result = script("./sim/lte/activate-dhcp.sh")
         self.out.verbose(result['out'])
 
         return result['rc'] == 0
@@ -69,7 +77,7 @@ class Lte:
     def check_mode(self):
         self.out.verbose("Check Operation mode")
 
-        result = shell(["bash", "./sim/lte/check-mode.sh"])
+        result = script("./sim/lte/check-mode.sh")
         self.out.verbose(result['out'])
 
         result_offline = 'offline'
@@ -88,7 +96,7 @@ class Lte:
     def check_signal(self):
         self.out.verbose("Check Signal Strength")
 
-        result = shell(["bash", "./sim/lte/check-signal.sh"])
+        result = script("./sim/lte/check-signal.sh")
         self.out.verbose(result['out'])
         # TODO Implement JSON response
 
@@ -100,7 +108,7 @@ class Lte:
     def check_network(self):
         self.out.verbose("Check Home Network")
 
-        result = shell(["bash", "./sim/lte/check-home-network.sh"])
+        result = script("./sim/lte/check-home-network.sh")
         self.out.verbose(result['out'])
 
         # https://regex101.com/r/cmfRwH/2
@@ -120,7 +128,7 @@ class Lte:
     def check_interface(self):
         self.out.verbose("Check interface name")
 
-        result = shell(["bash", "./sim/lte/check-interface.sh"])
+        result = script("./sim/lte/check-interface.sh")
         self.out.verbose(result['out'])
 
         if result['rc'] != 0:
@@ -133,7 +141,7 @@ class Lte:
     def action_activate_raw_ip(self):
         self.out.verbose("Activate raw_ip for network interface")
 
-        result = shell(["bash", "./sim/lte/set-raw-ip.sh"])
+        result = script("./sim/lte/set-raw-ip.sh")
         self.out.verbose(result['out'])
 
         return result['rc'] == 0

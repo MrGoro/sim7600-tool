@@ -18,7 +18,8 @@ status = Sms.SmsStatus.UNREAD
 
 
 def version():
-    with open("version", 'r') as fin:
+    version_file = sys.path[0]+"/version"
+    with open(version_file, 'r') as fin:
         print(fin.read())
 
 
