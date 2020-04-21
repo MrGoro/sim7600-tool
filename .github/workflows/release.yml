@@ -28,7 +28,7 @@ jobs:
       uses: github-actions-x/commit@v2.5
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        push-branch: ${{ github.ref }}
+        push-branch: 'master'
         commit-message: 'Changelog'
         force-add: 'true'
         files: debian/changelog
