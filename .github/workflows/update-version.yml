@@ -1,0 +1,36 @@
+name: Update Version
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'version'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set version number
+      id: get-version
+      run: |
+        echo ::set-output name=version::$(cat version)
+
+    - name: Install Dependencies
+      run: sudo apt-get install git-buildpackage
+
+    - name: Update Changelog
+      run: gbp dch --new-version="${{ steps.get-version.outputs.version }}"-1
+
+    - name: Push changes
+      uses: github-actions-x/commit@v2.5
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        push-branch: 'master'
+        commit-message: "Update Version to "${{ steps.get-version.outputs.version }}
+        force-add: 'true'
+        files: debian/changelog
+        name: Github Actions
+        email: mail@mrgoro.de
