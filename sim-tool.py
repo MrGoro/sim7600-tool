@@ -17,6 +17,11 @@ apn = ""
 status = Sms.SmsStatus.UNREAD
 
 
+def version():
+    with open("version", 'r') as fin:
+        print(fin.read())
+
+
 def usage():
     print("usage sim-tool [tool] [options]")
     print("Tools:")
@@ -28,6 +33,7 @@ def usage():
     print("-p --port    : Device to use, default /dev/ttyS0")
     print("-v --verbose : Activate verbose logging to console")
     print("-h --help    : Print this text")
+    print("   --version : Print the version number")
     print("")
 
 
@@ -76,6 +82,9 @@ def usage_lte():
 if __name__ == "__main__":
     try:
         tool = sys.argv[1]
+        if tool == "--version":
+            version()
+            sys.exit(2)
         if tool == "--help":
             usage()
             sys.exit(2)
