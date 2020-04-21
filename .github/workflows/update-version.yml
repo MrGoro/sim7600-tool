@@ -22,7 +22,7 @@ jobs:
       run: sudo apt-get install git-buildpackage
 
     - name: Update Changelog
-      run: gbp dch --new-version="${{ steps.get-version.outputs.version }}"-1
+      run: gbp dch --new-version="${{ steps.get-version.outputs.version }}"
 
     - name: Push changes
       uses: github-actions-x/commit@v2.5
