@@ -1,4 +1,4 @@
-sim-tool (1.0.0-1) stretch; urgency=medium
+sim-tool (0.0.0-1) stretch; urgency=medium
 
   * Initial version of the tool with packaging.
 

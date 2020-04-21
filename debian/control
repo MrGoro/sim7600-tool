@@ -2,11 +2,11 @@ Source: sim-tool
 Section: electronics
 Priority: optional
 Maintainer: Philipp Schürmann <spam@mrgoro.de>
-Build-Depends: debhelper (>= 9)
+Build-Depends: build-essential, debhelper (>= 9)
 
 Package: sim-tool
-Architecture: all
-Depends: python2.7, python-messaging
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python2.7, python-enum34, python-serial, python-messaging
 Homepage: https://github.com/MrGoro/sim7600-tool
 Description: SIM7600 Tool
  SIM7600 Tool is written in Python
