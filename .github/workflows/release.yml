@@ -18,6 +18,9 @@ jobs:
       run: |
         echo ::set-output name=version::$(/bin/echo "${{ github.ref }}" | cut -d'v' -f 2)
 
+    - name: Install Dependencies
+      run: sudo apt-get install debhelper dh-virtualenv git-buildpackage
+
     - name: Build Debian Package
       run: dpkg-buildpackage
 
