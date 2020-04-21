@@ -12,5 +12,5 @@ install:
 	cp sim-tool $(DESTDIR)/usr/bin/
 	mkdir -p $(DESTDIR)/usr/share/sim-tool
 	cp sim-tool.py $(DESTDIR)/usr/share/sim-tool/sim-tool
-	cp version $(DESTDIR)/usr/share/sim-tool/sim-tool
+	cp version $(DESTDIR)/usr/share/sim-tool/sim-tool/version
 	cp -R sim $(DESTDIR)/usr/share/sim-tool
