@@ -15,6 +15,8 @@ verbose = False
 action = ""
 apn = ""
 status = Sms.SmsStatus.UNREAD
+location1 = ""
+location2 = ""
 
 
 def version():
@@ -52,9 +54,27 @@ def usage_sms():
     print("--status          : SMS status (READ,UNREAD,ALL) for action read")
     print("Example:")
     print("sim-tool sms -a delete")
-    print("sim-tool lte --action=read --status=ALL --file=lte.json --verbose")
+    print("sim-tool sms --action=read --status=ALL --file=lte.json --verbose")
     print("")
 
+
+def usage_gps():
+    print("usage sim-tool gps -a [action] [options]")
+    print("Actions:")
+    print("read             : Read GPS location")
+    print("distance         : Calculate distance between locations")
+    print("Options:")
+    print("-f --file        : Write gps json to specified output file")
+    print("-p --port        : Device to use, default /dev/ttyS0")
+    print("-v --verbose     : Activate verbose logging to console")
+    print("-h --help        : Print this text")
+    print("Special action options:")
+    print("--location1      : Location 1 as JSON for action distance")
+    print("--location2      : Location 2 as JSON for action distance")
+    print("Example:")
+    print("sim-tool gps")
+    print("sim-tool gps --action=distance --location1={\"latitude\": 51.83609516666667, \"longitude\": 7.40293035} --location2={\"latitude\": 51.4589493434, \"longitude\": 7.3434}")
+    print("")
 
 def usage_lte():
     print("usage sim-tool lte -a [action] [options]")
@@ -93,7 +113,7 @@ if __name__ == "__main__":
             print("Tool '" + tool + "' is invalid. Please run sim-tool --help for more information.")
             sys.exit(2)
         opts, args = getopt.getopt(sys.argv[2:], 't:f:p:a:hv', ['tool=', 'file=', 'port=', 'help', 'verbose', 'action=',
-                                                                'apn=', 'status='])
+                                                                'apn=', 'status=', 'location1=', 'location2='])
     except (getopt.GetoptError, IndexError) as e:
         usage()
         sys.exit(2)
@@ -122,6 +142,10 @@ if __name__ == "__main__":
             else:
                 usage_sms()
                 sys.exit(2)
+        elif opt == '--location1':
+            location1 = arg
+        elif opt == '--location2':
+            location2 = arg
         else:
             usage()
             sys.exit(2)
@@ -141,9 +165,16 @@ if __name__ == "__main__":
             sys.exit(2)
 
     elif tool == "gps":
-        gps = Gps(port, out)
-        gps.print_location()
-        gps.close()
+        if action == "read" or action == "":
+            gps = Gps(port, out)
+            gps.print_location()
+            gps.close()
+        elif action == "distance":
+            Gps.action_distance(location1, location2)
+        else:
+            usage_gps()
+            sys.exit(2)
+
     elif tool == "lte":
         lte = Lte(out)
         if action == "activate-device":

@@ -3,6 +3,7 @@ import re
 import json
 import datetime
 import sys
+import geopy.distance
 from . import Sim
 from .output import Output
 
@@ -78,6 +79,39 @@ class Gps:
 
     def close(self):
         self.sim.close()
+
+    @staticmethod
+    def action_distance(location1, location2):
+        loc1 = json.loads(location1)
+        if not loc1:
+            print("Location 1 not present")
+            sys.exit(2)
+        elif not loc1['latitude']:
+            print("Location 1 does not have latitude")
+            sys.exit(2)
+        elif not loc1['longitude']:
+            print("Location 1 does not have longitude")
+            sys.exit(2)
+
+        loc2 = json.loads(location2)
+        if not loc2:
+            print("Location 2 not present")
+            sys.exit(2)
+        elif not loc2['latitude']:
+            print("Location 2 does not have latitude")
+            sys.exit(2)
+        elif not loc2['longitude']:
+            print("Location 2 does not have longitude")
+            sys.exit(2)
+
+        result = Gps.distance(loc1, loc2)
+        print(result)
+
+    @staticmethod
+    def distance(location1, location2):
+        coords1 = (location1['latitude'], location1['longitude'])
+        coords2 = (location2['latitude'], location2['longitude'])
+        return geopy.distance.distance(coords1, coords2).m
 
 
 if __name__ == "__main__":

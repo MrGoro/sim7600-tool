@@ -6,7 +6,7 @@ Build-Depends: build-essential, debhelper (>= 9)
 
 Package: sim-tool
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, python2.7, python-enum34, python-serial, python-messaging
+Depends: ${shlibs:Depends}, ${misc:Depends}, python2.7, python-enum34, python-serial, python-messaging, python-geopy
 Homepage: https://github.com/MrGoro/sim7600-tool
 Description: SIM7600 Tool
  SIM7600 Tool is written in Python
