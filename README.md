@@ -1,5 +1,7 @@
 # SIM7600 Tool
-Command Line tool for basic communication with SIM7600E 4G &amp; GPS module
+Command Line tool for basic communication with SIM7600E 4G &amp; GPS module.
+
+The tool is **WIP** and built specifically for the [Waveshare SIM7600E-H Raspberry Pi HAT](https://www.waveshare.com/wiki/SIM7600E-H_4G_HAT) on an Raspberry Pi 3+ with Raspbian Buster but may work on other modules or platforms.
 
 ![Build Debian Package](https://github.com/MrGoro/sim7600-tool/workflows/Build%20Debian%20Package/badge.svg)
 
@@ -7,9 +9,9 @@ Command Line tool for basic communication with SIM7600E 4G &amp; GPS module
 The tool is currently not hosted on the official Debian repositories therefore you cannot install it with `apt-get install`.
 
 First install dependencies:  
-`sudo apt-get install`  
+`sudo apt-get install python2.7 python-enum34 python-serial python-messaging python-geopy`  
 
-Download debian package from release section and install it by running:  
+Download Debian package from release section and install it by running:  
 `sudo dpkg -i sim-tool_1.0.0-1_all.deb`
 
 # Usage
