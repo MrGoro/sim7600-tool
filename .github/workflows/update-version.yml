@@ -21,6 +21,11 @@ jobs:
     - name: Install Dependencies
       run: sudo apt-get install git-buildpackage
 
+    - name: Set git properties
+      run: |
+       git config --local user.email "spam@mrgoro.de"
+       git config --local user.name "Philipp Schürmann"
+
     - name: Update Changelog
       run: gbp dch --release --commit --new-version="${{ steps.get-version.outputs.version }}" --spawn-editor=never
 
