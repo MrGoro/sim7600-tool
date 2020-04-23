@@ -1,4 +1,4 @@
-sim-tool (0.0.1-7) UNRELEASED; urgency=medium
+sim-tool (0.0.1-10) bionic; urgency=medium
 
   [ runner@fv-az86.rq0xtic12rnubmx2yw2aldmvnd.bx.internal.cloudapp.net ]
   * UNRELEASED
@@ -21,7 +21,10 @@ sim-tool (0.0.1-7) UNRELEASED; urgency=medium
   [  ]
   * UNRELEASED
 
- --  <runner@fv-az50.j0ga1x3z2hnevejcmdmncbprbb.cx.internal.cloudapp.net>  Tue, 21 Apr 2020 12:20:35 +0000
+  [  ]
+  * UNRELEASED
+
+ --  <runner@fv-az60.dlp5sk0l5q4ufngozllgwguspg.cx.internal.cloudapp.net>  Thu, 23 Apr 2020 10:10:17 +0000
 
 sim-tool (0.0.0-1) stretch; urgency=medium
 
