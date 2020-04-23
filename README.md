@@ -6,13 +6,10 @@ The tool is **WIP** and built specifically for the [Waveshare SIM7600E-H Raspber
 ![Build Debian Package](https://github.com/MrGoro/sim7600-tool/workflows/Build%20Debian%20Package/badge.svg)
 
 # Installation
-The tool is currently not hosted on the official Debian repositories therefore you cannot install it with `apt-get install`.
+The tool is currently not hosted on the official Debian repositories therefore you have to download it manually.
 
-First install dependencies:  
-`sudo apt-get install python2.7 python-enum34 python-serial python-messaging python-geopy`  
-
-Download Debian package from release section and install it by running:  
-`sudo dpkg -i sim-tool_1.0.0-1_all.deb`
+Download Debian package from [release section](https://github.com/MrGoro/sim7600-tool/releases/latest) and install it by running:  
+`sudo apt-get install ./sim-tool_1.0.0-1_all.deb`
 
 # Usage
 For basic information about the usage type:  
