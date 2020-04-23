@@ -1,34 +1,13 @@
 sim-tool (0.0.1-10) bionic; urgency=medium
 
-  [ runner@fv-az86.rq0xtic12rnubmx2yw2aldmvnd.bx.internal.cloudapp.net ]
-  * UNRELEASED
+  [ Philipp Schürmann ]
+  * Fix Changelog
 
-  [  ]
-  * UNRELEASED
-
-  [  ]
-  * UNRELEASED
-
-  [  ]
-  * UNRELEASED
-
-  [  ]
-  * UNRELEASED
-
-  [  ]
-  * UNRELEASED
-
-  [  ]
-  * UNRELEASED
-
-  [  ]
-  * UNRELEASED
-
- --  <runner@fv-az60.dlp5sk0l5q4ufngozllgwguspg.cx.internal.cloudapp.net>  Thu, 23 Apr 2020 10:10:17 +0000
+ -- Philipp Schürmann <spam@mrgoro.de>  Thu, 23 Apr 2020 10:10:17 +0000
 
 sim-tool (0.0.0-1) stretch; urgency=medium
 
   [ Philipp Schürmann ]
   * Initial version of the tool with packaging.
 
- --  <runner@fv-az89.ees1kcu2ckmurn4vdxqn2bboma.cx.internal.cloudapp.net>  Tue, 21 Apr 2020 10:40:13 +0000
+ -- Philipp Schürmann <spam@mrgoro.de>  Tue, 21 Apr 2020 10:40:13 +0000
