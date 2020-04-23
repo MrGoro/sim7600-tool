@@ -22,15 +22,9 @@ jobs:
       run: sudo apt-get install git-buildpackage
 
     - name: Update Changelog
-      run: gbp dch --new-version="${{ steps.get-version.outputs.version }}" --release
+      run: gbp dch --release --commit --new-version="${{ steps.get-version.outputs.version }}" --spawn-editor=never
 
     - name: Push changes
-      uses: github-actions-x/commit@v2.5
+      uses: ad-m/github-push-action@master
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        push-branch: 'master'
-        commit-message: "Update Changelog for Version ${{ steps.get-version.outputs.version }}"
-        force-add: 'true'
-        files: debian/changelog
-        name: Github Actions
-        email: mail@mrgoro.de
+        github_token: ${{ secrets.GITHUB_TOKEN }}
